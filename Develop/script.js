@@ -36,12 +36,16 @@ function generatePassword() {
   } else if (length > 128) {
     alert("Password length must be inbetween 8 and 128.");
     return;
+  } else if (length !== number){
+    alert("Please input a number inbetween 8 and 128.");
+    return;
   };
+
   var lowercase = confirm("Do you want to include lowercase letters?");
   var uppercase = confirm("Do you want to include uppercase letters?");
   var number = confirm("Do you want to include numbers?");
   var special = confirm('Do you want to include special characters?');
- 
+  var password
 
 
 
@@ -51,12 +55,19 @@ function generatePassword() {
   if (special) {selection = selection.concat(specials)};
   if (selection.length == 0) {
     alert("Select at least one character type.")
+    return
   }
   console.log(selection.length)
 
   for (var i = 0; i < length; i++){
-    var randomNumber = Math.floor(Math.random() * selection.length - 1);
+    var randomNumber = Math.floor(Math.random() * selection.length );
     console.log(randomNumber, selection[randomNumber]);
-    
+    if (!password){
+      password = selection[randomNumber];
+    } else {
+      password = password + selection[randomNumber];
+    };
+    console.log(password);
   };
+  document.textarea.textcontent = password
 };
