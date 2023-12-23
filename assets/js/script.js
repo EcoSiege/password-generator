@@ -48,13 +48,11 @@ function generatePassword() {
   // Picks random array elements untill users selected lenght is reached
   for (var i = 0; i < length; i++){
     var randomNumber = Math.floor(Math.random() * selection.length );
-    console.log(randomNumber, selection[randomNumber]);
     if (!password){
       password = selection[randomNumber];
     } else {
       password = password + selection[randomNumber];
     };
-    console.log(password); 
   };
   // displays password
   var passwordText = document.querySelector("#password")
