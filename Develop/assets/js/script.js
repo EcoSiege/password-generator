@@ -4,10 +4,6 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
 }
 
 // Add event listener to generate button
@@ -58,8 +54,9 @@ function generatePassword() {
     } else {
       password = password + selection[randomNumber];
     };
-    console.log(password);
-    document.querySelector('#password').textContent = password
+    console.log(password); 
   };
-  
+  // displays password
+  var passwordText = document.querySelector("#password")
+  passwordText.value = password;
 };
